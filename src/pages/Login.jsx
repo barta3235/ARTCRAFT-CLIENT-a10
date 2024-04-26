@@ -83,14 +83,14 @@ const Login = () => {
                     
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-[18px]">Login with:</span>
+                            <span className="label-text text-[18px] mb-2">Login with:</span>
                         </label>
-                        <div className="flex gap-5">
-                             <div >
-                                <button onClick={handleGoogle}>< FaGoogle className="text-3xl"></FaGoogle></button>
+                        <div className="flex gap-6">
+                             <div>
+                                <button className="border p-2 border-black rounded-full" onClick={handleGoogle}>< FaGoogle className="text-3xl hover:text-red-700"></FaGoogle></button>
                              </div>
                              <div>
-                                <button onClick={handleGithub}><FaGithub className="text-3xl" ></FaGithub></button>
+                                <button className="border p-2 border-black rounded-full" onClick={handleGithub}><FaGithub className="text-3xl  hover:text-blue-700" ></FaGithub></button>
                              </div>
                         </div>
                     </div>
