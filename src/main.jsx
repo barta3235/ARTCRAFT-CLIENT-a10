@@ -15,6 +15,7 @@ import AuthProvider from './provider/AuthProvider';
 import AddCrafts from './pages/AddCrafts';
 import Allcrafts from './pages/Allcrafts';
 import CraftDetails from './pages/CraftDetails';
+import MyCrafts from './pages/MyCrafts'
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
         path:'/craftDetails/:id',
         element: <CraftDetails></CraftDetails>,
         loader:({params})=> fetch(`http://localhost:5000/items/${params.id}`)
+      },
+      {
+        path:'/mycrafts/:email',
+        element:<MyCrafts></MyCrafts>,
+        loader:({params})=> fetch(`http://localhost:5000/itemsbyemail/${params.email}`)
       }
     ]
   },

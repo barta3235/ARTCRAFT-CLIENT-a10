@@ -4,17 +4,17 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
 
-
+    const { user } = useContext(AuthContext);
+    console.log(user?.email)
 
     const navlink = <>
         <NavLink className={({isActive})=> isActive? 'text-[22px] font-bold mr-[25px] text-[#3E54A3] border-b-4 pb-2 border-[#3E54A3]' : 'text-[22px] font-semibold mr-[25px] pb-2 hover:border-b-4 hover:border-[#3E54A3]'} to='/'>Home</NavLink>
         <NavLink className={({isActive})=> isActive? 'text-[22px] font-bold mr-[25px] text-[#3E54A3] border-b-4 pb-2 border-[#3E54A3]' : 'text-[22px] font-semibold mr-[25px] pb-2 hover:border-b-4 hover:border-[#3E54A3]'} to='/addcrafts'>Add Crafts</NavLink>
         <NavLink className={({isActive})=> isActive? 'text-[22px] font-bold mr-[25px] text-[#3E54A3] border-b-4 pb-2 border-[#3E54A3]' : 'text-[22px] font-semibold mr-[25px] pb-2 hover:border-b-4 hover:border-[#3E54A3]'} to='/allcrafts'>All Crafts</NavLink>
-        <NavLink className={({isActive})=> isActive? 'text-[22px] font-bold text-[#3E54A3] border-b-4 pb-2 border-[#3E54A3]' : 'text-[22px] font-semibold pb-2 hover:border-b-4 hover:border-[#3E54A3]'} to='/mycrafts'>My Crafts</NavLink>
+        <NavLink className={({isActive})=> isActive? 'text-[22px] font-bold text-[#3E54A3] border-b-4 pb-2 border-[#3E54A3]' : 'text-[22px] font-semibold pb-2 hover:border-b-4 hover:border-[#3E54A3]'} to={`/mycrafts/${user?.email}`}>My Crafts</NavLink>
     </>
 
-    const { user } = useContext(AuthContext);
-    console.log(user)
+    
 
     return (
         <div className="navbar  fixed items-center z-10">
@@ -27,7 +27,7 @@ const Navbar = () => {
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/'>Home</NavLink>
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]'  to='/addcrafts'>Add Crafts</NavLink>
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]'  to='/allcrafts'>All Crafts</NavLink>
-                        <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/mycrafts'>My Crafts</NavLink>
+                        <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to={`/mycrafts/${user?.email}`}>My Crafts</NavLink>
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/login'>Login</NavLink>
                         <NavLink className='text-2xl p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/signup'>Sign Up</NavLink>
                     </ul>

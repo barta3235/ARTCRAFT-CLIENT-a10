@@ -50,7 +50,7 @@ const AddCrafts = () => {
 
 
     return (
-        <div className="bg-[#F4F3F0] p-2 md:p-24">
+        <div className="p-2 md:p-24 bg-slate-200">
             <form onSubmit={handleAddItem}>
 
 

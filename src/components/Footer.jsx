@@ -1,44 +1,23 @@
 import { MdEmail } from "react-icons/md";
 import { FaFax } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaKickstarterK } from "react-icons/fa";
 
 
 const Footer = () => {
     return (
         <footer className="py-6 dark:bg-gray-100 dark:text-gray-900 bg-blue-900 text-white">
             <div className="container px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50">
-                <div className="grid grid-cols-12">
-                    <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
-                        <a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 md:justify-start">
-                            <div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
-
-                            </div>
-                            <span className="self-center text-4xl font-bold">Kraftelle</span>
-                        </a>
+                <div className="flex flex-col md:flex-row justify-around items-center">
+                    <div className="flex items-center gap-2">
+                         <FaKickstarterK className="border text-[36px] p-1 rounded-full"></FaKickstarterK>
+                        <h1 className="text-4xl font-extrabold text-white">Kraftelle</h1>
                     </div>
-                    <div className="col-span-6 text-center md:text-left md:col-span-3">
-                        <p className="pb-1 text-xl font-medium">Reach Us</p>
-                        <ul>
-                            <li>
-                                <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-600 text-[18px] flex items-center gap-2 mt-3"><MdEmail></MdEmail> <h1>kraftelle@hotmail.in</h1></a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-600 text-[18px] flex items-center gap-2 mt-3"><FaFax></FaFax> <h1>Fax: +880909811189</h1></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-span-6 text-center md:text-left md:col-span-3">
-                        <ul>
-                            <li>
-                                <Link to='/' rel="noopener noreferrer" href="#" className="hover:dark:text-violet-600 text-[18px] font-medium">Home</Link>
-                            </li>
-                            <li className="mt-3">
-                              <Link to='/allcrafts' rel="noopener noreferrer" href="#" className="hover:dark:text-violet-600 text-[18px] font-medium ">Products</Link>
-                            </li>
-                            <li className="mt-3">
-                                <a rel="noopener noreferrer" href="#" className="hover:dark:text-violet-600 text-[18px] font-medium ">About Us</a>
-                            </li>
-                        </ul>
+                    <div>
+                        <h1 className="font-medium text-[20px]">Home</h1>
+                        <h1 className="mt-3 font-medium text-[20px]">About Us</h1>
+                        <div className="flex gap-2 items-center mt-3 font-medium text-[20px]"><MdEmail></MdEmail><h1>kraftelle@hotmail.org</h1></div>
+                        <div className="flex gap-2 items-center mt-3 font-medium text-[20px]"><FaFax></FaFax><h1>+998110088</h1></div>
                     </div>
                 </div>
                 <div className="grid justify-center pt-6 lg:justify-between">
