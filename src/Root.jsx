@@ -6,6 +6,10 @@ const Root = () => {
     return (
         <div>
             <Navbar></Navbar>
+            <div className="h-[75px]">
+
+            </div>
+           
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

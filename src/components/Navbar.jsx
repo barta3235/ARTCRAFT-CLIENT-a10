@@ -5,6 +5,8 @@ import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
 
+
+
     const navlink = <>
         <NavLink className={({isActive})=> isActive? 'text-[22px] font-bold mr-[25px] text-[#3E54A3] border-b-4 pb-2 border-[#3E54A3]' : 'text-[22px] font-semibold mr-[25px] pb-2 hover:border-b-4 hover:border-[#3E54A3]'} to='/'>Home</NavLink>
         <NavLink className={({isActive})=> isActive? 'text-[22px] font-bold mr-[25px] text-[#3E54A3] border-b-4 pb-2 border-[#3E54A3]' : 'text-[22px] font-semibold mr-[25px] pb-2 hover:border-b-4 hover:border-[#3E54A3]'} to='/addcrafts'>Add Crafts</NavLink>
@@ -15,7 +17,7 @@ const Navbar = () => {
     console.log(user)
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar  fixed items-center z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden pl-0">
@@ -39,9 +41,10 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <div className="avatar">
+                        <div className="avatar" >  
                             <div className="w-14 rounded-full">
-                                <img src={user.photoURL} />
+                            
+                                <img src={user.photoURL}/>  
                             </div>
                         </div>
                         :

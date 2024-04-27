@@ -1,3 +1,96 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .autoplay-progress {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--swiper-theme-color);
+  }
+  
+  .autoplay-progress svg {
+    --progress: 0;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    stroke-width: 4px;
+    stroke: var(--swiper-theme-color);
+    fill: none;
+    stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+    stroke-dasharray: 125.6;
+    transform: rotate(-90deg);
+  }
+
+  .slides-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .slider-one{
+    background-image: url('https://i.postimg.cc/wv8w1xFc/painting-4159435-1280.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .slider-two{
+    background-image: url('https://i.postimg.cc/9fjxMFLP/sebastian-unrau-sp-p7uu-T0tw-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .slider-three{
+    background-image: url('https://i.postimg.cc/DZ75Fjx7/supperrr.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .slider-four{
+    background-image: url('https://i.postimg.cc/TwZwgSB6/birmingham-museums-trust-8wco-Y3wcb-L0-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  
+
+  .slider-five{
+    background-image: url('https://i.postimg.cc/WzLNhZJp/archire.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
