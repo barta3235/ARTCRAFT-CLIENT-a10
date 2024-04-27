@@ -43,11 +43,23 @@ const Register = () => {
                     updateUser(name, photourl)
                         .then((result) => {
                             console.log(result.user)
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'You have successfully registered',
+                                icon: 'success',
+                                confirmButtonText: 'Continue'
+                              })
                         })
                 }
             })
             .catch(error => {
                 console.log(error)
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${error.message}`,
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                  })
             })
 
     }

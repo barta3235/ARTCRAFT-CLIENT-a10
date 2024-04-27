@@ -3,6 +3,7 @@ import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 
@@ -41,9 +42,21 @@ const Login = () => {
         githubSignIn()
         .then(result=>{
             console.log(result.user)
+            Swal.fire({
+                title: 'Success!',
+                text: 'You have logged in',
+                icon: 'success',
+                confirmButtonText: 'Continue'
+              })
         })
         .catch(error=>{
             console.log(error.message)
+            Swal.fire({
+                title: 'Error!',
+                text: `${error.message}`,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         })
 
     }
