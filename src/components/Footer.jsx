@@ -9,7 +9,7 @@ const Footer = () => {
         <footer className="py-6 dark:bg-gray-100 dark:text-gray-900 bg-blue-900 text-white">
             <div className="container px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50">
                 <div className="flex flex-col md:flex-row justify-around items-center">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 mb-[20px] md:mb-[0px]">
                          <FaKickstarterK className="border text-[36px] p-1 rounded-full"></FaKickstarterK>
                         <h1 className="text-4xl font-extrabold text-white">Kraftelle</h1>
                     </div>
