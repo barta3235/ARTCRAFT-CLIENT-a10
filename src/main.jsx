@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import Root from './Root'
+import Error from './pages/Error'
 
 import {
   createBrowserRouter,
@@ -19,10 +20,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<Error></Error>,
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader:()=> fetch('http://localhost:5000/items')
       },
       {
         path:'/signup',
