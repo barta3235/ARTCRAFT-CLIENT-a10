@@ -16,7 +16,7 @@ const CraftDetails = () => {
     return (
         <section>
             <div className="dark:bg-violet-600">
-                <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-50">
+                <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-50 bg-slate-200">
                     <h1 className="text-3xl md:text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50">{itemname}</h1>
                     <h1 className="text-2xl md:text-3xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50 mt-[30px]">{subcategory}</h1>
                     <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-50 text-justify">{description}</p>
@@ -60,8 +60,8 @@ const CraftDetails = () => {
 
                     <h1 className="font-medium text-4xl text-center mb-[30px]">Owner Data</h1>
                     <div className="flex w-full flex-col md:flex-row gap-5">
-                        <div className="grid h-20 flex-grow card border rounded-box place-items-center font-medium text-[20px] p-1">{name}</div>
-                        <div className="grid h-20 flex-grow card border rounded-box place-items-center font-medium text-[20px] p-1">{email}</div>
+                        <div className="grid h-20 flex-grow card border border-blue-950 rounded-box place-items-center font-medium text-[20px] p-1">{name}</div>
+                        <div className="grid h-20 flex-grow card border border-blue-950 rounded-box place-items-center font-medium text-[20px] p-1">{email}</div>
                     </div>
 
 
