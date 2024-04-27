@@ -12,6 +12,8 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import AuthProvider from './provider/AuthProvider';
 import AddCrafts from './pages/AddCrafts';
+import Allcrafts from './pages/Allcrafts';
+import CraftDetails from './pages/CraftDetails';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,16 @@ const router = createBrowserRouter([
       {
         path:'/addcrafts',
         element:<AddCrafts></AddCrafts>
+      },
+      {
+        path:'/allcrafts',
+        element:<Allcrafts></Allcrafts>,
+        loader:()=> fetch('http://localhost:5000/items')
+      },
+      {
+        path:'/craftDetails/:id',
+        element: <CraftDetails></CraftDetails>,
+        loader:({params})=> fetch(`http://localhost:5000/items/${params.id}`)
       }
     ]
   },

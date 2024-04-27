@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddCrafts = () => {
 
@@ -7,6 +8,7 @@ const AddCrafts = () => {
     
     const handleAddItem=(e)=>{
         e.preventDefault();
+        const form = e.target;
         const imageurl= e.target.imageurl.value;
         const itemname= e.target.itemname.value;
         const subcategory= e.target.subcategory.value;
@@ -33,7 +35,15 @@ const AddCrafts = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'You have added an item!',
+                    icon: 'success',
+                    confirmButtonText: 'Continue'
+                  })
+            }
+            form.reset();
         })
     }
 
@@ -142,7 +152,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">User Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Name" defaultValue={user.displayName? user.displayName:''} className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="name" placeholder="Name" defaultValue={user?.displayName? user.displayName:''} className="w-full input input-bordered rounded-l-none" />
                         </label>
                     </div>
 
@@ -151,7 +161,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">User Email</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="email" placeholder="Email" defaultValue={user.email? user.email:'' } className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="email" placeholder="Email" defaultValue={user?.email? user.email:'' } className="w-full input input-bordered rounded-l-none" />
                         </label>
                     </div>
                 </div>
