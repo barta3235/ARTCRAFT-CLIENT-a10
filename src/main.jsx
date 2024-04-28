@@ -17,6 +17,7 @@ import Allcrafts from './pages/Allcrafts';
 import CraftDetails from './pages/CraftDetails';
 import MyCrafts from './pages/MyCrafts'
 import Update from './pages/Update'
+import ProtectedRoute from './provider/ProtectedRoute'
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/addcrafts',
-        element:<AddCrafts></AddCrafts>
+        element:<ProtectedRoute><AddCrafts></AddCrafts></ProtectedRoute>
       },
       {
         path:'/allcrafts',
@@ -48,17 +49,17 @@ const router = createBrowserRouter([
       },
       {
         path:'/craftDetails/:id',
-        element: <CraftDetails></CraftDetails>,
+        element: <ProtectedRoute><CraftDetails></CraftDetails></ProtectedRoute>,
         loader:({params})=> fetch(`http://localhost:5000/items/${params.id}`)
       },
       {
         path:'/mycrafts/:email',
-        element:<MyCrafts></MyCrafts>,
+        element:<ProtectedRoute><MyCrafts></MyCrafts></ProtectedRoute>,
         loader:({params})=> fetch(`http://localhost:5000/itemsbyemail/${params.email}`)
       },
       {
           path: '/update/:id',
-          element:<Update></Update>,
+          element:<ProtectedRoute><Update></Update></ProtectedRoute>,
           loader:({params})=>fetch(`http://localhost:5000/items/${params.id}`)
       }
     ]

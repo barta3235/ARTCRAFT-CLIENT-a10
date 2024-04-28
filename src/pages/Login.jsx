@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate, } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useContext } from "react";
@@ -9,6 +9,8 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const {loginUser,googleSignIn,githubSignIn}=useContext(AuthContext);
+    const location=useLocation();
+    const navigation=useNavigate();
 
     const handleLogin=(e)=>{
         e.preventDefault()
@@ -18,9 +20,23 @@ const Login = () => {
         loginUser(email,password)
         .then((result)=>{
             console.log(result.user)
+            Swal.fire({
+                title: 'Success!',
+                text: 'You have logged in',
+                icon: 'success',
+                confirmButtonText: 'Continue'
+              })
+            navigation(location.state? location.state : '/');
+            
         })
         .catch(error=>{
             console.log(error.message)
+            Swal.fire({
+                title: 'Error!',
+                text: `${error.message}`,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         })
 
     }
@@ -31,9 +47,22 @@ const Login = () => {
         googleSignIn()
         .then(result=>{
             console.log(result.user)
+            Swal.fire({
+                title: 'Success!',
+                text: 'You have logged in',
+                icon: 'success',
+                confirmButtonText: 'Continue'
+              })
+              navigation(location.state? location.state : '/');
         })
         .catch(error=>{
             console.log(error.message)
+            Swal.fire({
+                title: 'Error!',
+                text: `${error.message}`,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+              })
         })
     }
 
@@ -48,6 +77,7 @@ const Login = () => {
                 icon: 'success',
                 confirmButtonText: 'Continue'
               })
+              navigation(location.state? location.state : '/');
         })
         .catch(error=>{
             console.log(error.message)

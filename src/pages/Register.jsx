@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from 'sweetalert2'
 
 const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext);
+    const navigation =useNavigate();
 
 
     const handleSignUp = (e) => {
@@ -37,30 +38,48 @@ const Register = () => {
         console.log(newUser);
 
 
-        createUser(email, password)
-            .then((result) => {
-                if (result.user) {
-                    updateUser(name, photourl)
-                        .then((result) => {
-                            console.log(result.user)
-                            Swal.fire({
-                                title: 'Success!',
-                                text: 'You have successfully registered',
-                                icon: 'success',
-                                confirmButtonText: 'Continue'
-                              })
-                        })
+            createUser(email,password)
+            .then((result)=>{
+                console.log(result.user)
+                  
+                if(result.user){
+                    updateUser(name,photourl)
+                .then(()=>{
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'You have registered successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Continue',
+                      })
+                    navigation('/')
+                })
+                .catch((error)=>{
+                    console.log(error.message);
+                    Swal.fire({
+                        title: 'Error!',
+                        text:  `${error.message}`,
+                        icon: 'error',
+                        confirmButtonText: 'Continue',
+                      })
+                })
                 }
+                
             })
-            .catch(error => {
-                console.log(error)
+            .catch((error)=>{
+                console.log(error.message);
                 Swal.fire({
                     title: 'Error!',
-                    text: `${error.message}`,
+                    text:  `${error.message}`,
                     icon: 'error',
-                    confirmButtonText: 'Cool'
+                    confirmButtonText: 'Continue'
                   })
             })
+    
+
+
+
+
+
 
     }
 
