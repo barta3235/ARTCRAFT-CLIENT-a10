@@ -18,8 +18,19 @@ const Navbar = () => {
         document.querySelector('html').setAttribute('data-theme', theme);
     }, [theme])
 
-    const { user } = useContext(AuthContext);
-    console.log(user?.email)
+    const { user,signOutUser } = useContext(AuthContext);
+    
+    const handleLogOut=()=>{
+          signOutUser()
+          .then(result=>{
+            console.log(result.user)
+          })
+          .catch(error=>{
+            console.log(error.message)
+          })
+    }
+
+    console.log(user)
 
     const navlink = <>
         <NavLink className={({ isActive }) => isActive ? 'text-[22px] font-bold mr-[25px] text-[#3E54A3] border-b-4 pb-2 border-[#3E54A3]' : 'text-[22px] font-semibold mr-[25px] pb-2 hover:border-b-4 hover:border-[#3E54A3]'} to='/'>Home</NavLink>
@@ -42,8 +53,13 @@ const Navbar = () => {
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/addcrafts'>Add Crafts</NavLink>
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/allcrafts'>All Crafts</NavLink>
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to={`/mycrafts/${user?.email}`}>My Crafts</NavLink>
-                        <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/login'>Login</NavLink>
-                        <NavLink className='text-2xl p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/signup'>Sign Up</NavLink>
+                       {
+                        user? '' : <div className="flex flex-col"> <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/login'>Login</NavLink>
+                        <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/signup'>Sign Up</NavLink></div>
+                       }
+                        {
+                            user ? <NavLink className="text-2xl p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]"><button onClick={handleLogOut}>Logout</button></NavLink> : ''
+                        }
                     </ul>
                 </div>
                 <Link href="/" className="text-2xl md:text-3xl pl-0 font-extrabold text-[#3E54A3] hover:text-blue-950">Kraftelle</Link>
@@ -60,15 +76,18 @@ const Navbar = () => {
                         <div className="flex gap-5 items-center">
                             <input onChange={handleToggle} type="checkbox" value="synthwave" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2" />
 
-                            <div className="avatar" >
+                            <div className="avatar tooltip tooltip-bottom" data-tip={user? user.displayName : 'No user'} >
                                 <div className="w-14 rounded-full">
                                     <img src={user.photoURL} />
                                 </div>
                             </div>
+                            <div className="hidden md:flex">
+                                <NavLink className="md:mr-[20px] p-3 text-white bg-[#3E54A3] font-medium rounded-lg"><button onClick={handleLogOut}>Logout</button></NavLink>
+                            </div>
                         </div>
                         :
                         <div className="flex items-center"><input onChange={handleToggle} type="checkbox" value="synthwave" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2 mr-[20px]" />
-                        <NavLink className="md:mr-[20px] p-3 text-white bg-[#3E54A3] font-medium rounded-lg" to='/login'><button>Login</button></NavLink>
+                            <NavLink className="md:mr-[20px] p-3 text-white bg-[#3E54A3] font-medium rounded-lg" to='/login'><button>Login</button></NavLink>
                             <NavLink className='md:mr-[20px] p-3 text-white bg-[#3E54A3] font-medium rounded-lg hidden md:flex' to='/signup'><button>Register</button></NavLink></div>
                 }
             </div>
