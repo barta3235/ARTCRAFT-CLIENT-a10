@@ -63,7 +63,7 @@ const MyArtDetails = ({ art, setArt,myArt }) => {
                         </div>
                         <div className="flex flex-col md:flex-row gap-2">
                             <button onClick={()=>handleDelete(_id)} className="font-medium flex justify-end p-2 bg-red-800 text-white rounded-xl">Delete</button>
-                            <Link><button className="font-medium flex justify-end p-2 bg-yellow-300 text-white rounded-xl">Update</button></Link>
+                            <Link to={`/update/${_id}`}><button className="font-medium flex justify-end p-2 bg-yellow-300 text-white rounded-xl">Update</button></Link>
                         </div>
                     </a>
                 </div>

@@ -16,6 +16,7 @@ import AddCrafts from './pages/AddCrafts';
 import Allcrafts from './pages/Allcrafts';
 import CraftDetails from './pages/CraftDetails';
 import MyCrafts from './pages/MyCrafts'
+import Update from './pages/Update'
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
         path:'/mycrafts/:email',
         element:<MyCrafts></MyCrafts>,
         loader:({params})=> fetch(`http://localhost:5000/itemsbyemail/${params.email}`)
+      },
+      {
+          path: '/update/:id',
+          element:<Update></Update>,
+          loader:({params})=>fetch(`http://localhost:5000/items/${params.id}`)
       }
     ]
   },
