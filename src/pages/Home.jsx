@@ -1,12 +1,13 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EachCraft from "./EachCraft";
 import { Typewriter } from 'react-simple-typewriter'
 
 const Home = () => {
     const loadedItems = useLoaderData();
     const [crafts, setCrafts] = useState(loadedItems);
+    const [subCat,setSubCat]=useState([])
     const slicedCrafts = crafts.slice(0, 6);
     console.log(slicedCrafts);
 
@@ -14,6 +15,12 @@ const Home = () => {
         // access word count number
         console.log(count)
     }
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/subcatitem')
+        .then(res=>res.json())
+        .then(data=>setSubCat(data));
+    },[])
 
 
     const handleDone = () => {
@@ -115,7 +122,17 @@ const Home = () => {
                 </div>
             </section>
 
-
+           
+            {/* Sub category section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-center mx-[7px] mb-[50px] ">
+                {
+                   subCat.map((acat)=><Link to={`/subcatdetails/${acat.subcategory}`}  key={acat._id}><div className=" p-6 h-full rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+                   <img src={acat.image} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
+                   
+                   <p className="dark:text-gray-800 mt-[20px] text-[25px] font-semibold">{acat.subcategory}</p>
+               </div></Link>)
+                }
+            </div>
 
      
 

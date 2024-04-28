@@ -18,6 +18,7 @@ import CraftDetails from './pages/CraftDetails';
 import MyCrafts from './pages/MyCrafts'
 import Update from './pages/Update'
 import ProtectedRoute from './provider/ProtectedRoute'
+import CategorySubDetails from './pages/CategorySubDetails'
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
           path: '/update/:id',
           element:<ProtectedRoute><Update></Update></ProtectedRoute>,
           loader:({params})=>fetch(`http://localhost:5000/items/${params.id}`)
+      },
+      {
+          path:'/subcatdetails/:id',
+          element:<CategorySubDetails></CategorySubDetails>
       }
     ]
   },

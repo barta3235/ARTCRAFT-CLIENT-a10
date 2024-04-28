@@ -61,7 +61,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">Image</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="imageurl" placeholder="Image URL" className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="imageurl" placeholder="Image URL" className="w-full input input-bordered rounded-l-none" required />
                         </label>
                     </div>
 
@@ -70,7 +70,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">Item Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="itemname" placeholder="Item Name" className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="itemname" placeholder="Item Name" className="w-full input input-bordered rounded-l-none" required/>
                         </label>
                     </div>
                 </div>
@@ -98,7 +98,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">Description</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="description" placeholder="Description" className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="description" placeholder="Description" className="w-full input input-bordered rounded-l-none" required/>
                         </label>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">Price</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="price" placeholder="Price in dollars" className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="price" placeholder="Price in dollars" className="w-full input input-bordered rounded-l-none" required />
                         </label>
                     </div>
 
@@ -119,7 +119,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">Rating</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="rating" placeholder="Rating" className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="rating" placeholder="Rating" className="w-full input input-bordered rounded-l-none" required />
                         </label>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">Processing Time</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="processingtime" placeholder="Processing Time" className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="processingtime" placeholder="Processing Time" className="w-full input input-bordered rounded-l-none" required />
                         </label>
                     </div>
 
@@ -140,7 +140,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">Stock Status</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="stockstatus" placeholder="In Stock or Made to Order" className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="stockstatus" placeholder="In Stock or Made to Order" className="w-full input input-bordered rounded-l-none" required />
                         </label>
                     </div>
                 </div>
@@ -152,7 +152,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">User Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Name" defaultValue={user?.displayName? user.displayName:''} className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="name" placeholder="Name" defaultValue={user?.displayName? user.displayName:''} className="w-full input input-bordered rounded-l-none" required />
                         </label>
                     </div>
 
@@ -161,7 +161,7 @@ const AddCrafts = () => {
                             <span className="label-text font-medium">User Email</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="email" placeholder="Email" defaultValue={user?.email? user.email:'' } className="w-full input input-bordered rounded-l-none" />
+                            <input type="text" name="email" placeholder="Email" defaultValue={user?.email? user.email:'' } className="w-full input input-bordered rounded-l-none" required />
                         </label>
                     </div>
                 </div>
