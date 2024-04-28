@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import Root from './Root'
 import Error from './pages/Error'
+import { HelmetProvider } from 'react-helmet-async'
 
 import {
   createBrowserRouter,
@@ -24,49 +25,49 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<Error></Error>,
-    children:[
+    errorElement: <Error></Error>,
+    children: [
       {
-        path:'/',
-        element:<Home></Home>,
-        loader:()=> fetch('http://localhost:5000/items')
+        path: '/',
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/items')
       },
       {
-        path:'/signup',
-        element:<Register></Register>
+        path: '/signup',
+        element: <Register></Register>
       },
       {
-        path:'/login',
+        path: '/login',
         element: <Login></Login>
       },
       {
-        path:'/addcrafts',
-        element:<ProtectedRoute><AddCrafts></AddCrafts></ProtectedRoute>
+        path: '/addcrafts',
+        element: <ProtectedRoute><AddCrafts></AddCrafts></ProtectedRoute>
       },
       {
-        path:'/allcrafts',
-        element:<Allcrafts></Allcrafts>,
-        loader:()=> fetch('http://localhost:5000/items')
+        path: '/allcrafts',
+        element: <Allcrafts></Allcrafts>,
+        loader: () => fetch('http://localhost:5000/items')
       },
       {
-        path:'/craftDetails/:id',
+        path: '/craftDetails/:id',
         element: <ProtectedRoute><CraftDetails></CraftDetails></ProtectedRoute>,
-        loader:({params})=> fetch(`http://localhost:5000/items/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/items/${params.id}`)
       },
       {
-        path:'/mycrafts/:email',
-        element:<ProtectedRoute><MyCrafts></MyCrafts></ProtectedRoute>,
-        loader:({params})=> fetch(`http://localhost:5000/itemsbyemail/${params.email}`)
+        path: '/mycrafts/:email',
+        element: <ProtectedRoute><MyCrafts></MyCrafts></ProtectedRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/itemsbyemail/${params.email}`)
       },
       {
-          path: '/update/:id',
-          element:<ProtectedRoute><Update></Update></ProtectedRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/items/${params.id}`)
+        path: '/update/:id',
+        element: <ProtectedRoute><Update></Update></ProtectedRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/items/${params.id}`)
       },
       {
-          path:'/subcatdetails/:cat',
-          element:<CategorySubDetails></CategorySubDetails>,
-          loader:({params})=>fetch(`http://localhost:5000/subcatitem/${params.cat}`)
+        path: '/subcatdetails/:cat',
+        element: <CategorySubDetails></CategorySubDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/subcatitem/${params.cat}`)
 
       },
     ]
@@ -75,8 +76,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-       <RouterProvider router={router} />
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </HelmetProvider>
   </React.StrictMode>,
 )

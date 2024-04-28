@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import { useEffect, useState } from "react";
 import EachCraft from "./EachCraft";
 import { Typewriter } from 'react-simple-typewriter'
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const loadedItems = useLoaderData();
@@ -29,6 +30,9 @@ const Home = () => {
 
     return (
         <div>
+             <Helmet>
+                 <title>Kraftelle | Home</title>
+            </Helmet>
             <Banner></Banner>
 
             {/* REACT typewriter */}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 const Allcrafts = () => {
@@ -9,6 +10,9 @@ const Allcrafts = () => {
     return (
 
         <div className="overflow-x-auto">
+             <Helmet>
+                 <title>Kraftelle | All Arts and Crafts</title>
+            </Helmet>
             <table className="table">
                 {/* head */}
                 <thead>

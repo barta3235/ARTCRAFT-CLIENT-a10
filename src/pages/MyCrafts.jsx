@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import MyArtDetails from "./MyArtDetails";
+import { Helmet } from "react-helmet-async";
 
 const MyCrafts = () => {
 
@@ -23,6 +24,9 @@ const MyCrafts = () => {
 
     return (
         <div className="text-end">
+             <Helmet>
+                 <title>Kraftelle | My Arts</title>
+            </Helmet>
             <div className="dropdown dropdown-end mt-[30px] mr-[30px] md:mr-[50px]">
                 <div tabIndex={0} role="button" className="btn m-1 bg-[#3E54A3] text-white hover:bg-blue-950">Customization</div>
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
