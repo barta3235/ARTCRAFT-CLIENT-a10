@@ -85,9 +85,9 @@ const AddCrafts = () => {
                             <select name="subcategory" id="lang" className="w-full h-[46px] rounded-r-lg pl-3">
                                 <option value="Landscape Painting">Landscape-Painting</option>
                                 <option value="Portrait Drawing">Portrait-Drawing</option>
-                                <option value="Watercolour Painting">Watercolour-Painting</option>
+                                <option value="Watercolour Painting">Watercolor-Painting</option>
                                 <option value="Oil Painting">Oil-Painting</option>
-                                <option value="Charcoal Sketching">Charcoal-Sketching</option>
+                                <option value="Charcoal Sketching">Charcoal-Painting</option>
                                 <option value="Cartoon Drawing">Cartoon-Drawing</option>
                             </select>
                         </label>

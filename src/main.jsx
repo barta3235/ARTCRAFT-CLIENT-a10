@@ -66,8 +66,9 @@ const router = createBrowserRouter([
       {
           path:'/subcatdetails/:cat',
           element:<CategorySubDetails></CategorySubDetails>,
+          loader:({params})=>fetch(`http://localhost:5000/subcatitem/${params.cat}`)
 
-      }
+      },
     ]
   },
 ]);
