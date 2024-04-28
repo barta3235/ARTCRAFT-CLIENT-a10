@@ -180,7 +180,7 @@ const Update = () => {
                 </div>
 
 
-                <input className="btn btn-block bg-[#3E54A3] text-[20px] font-semibold mt-[20px] text-white hover:bg-blue-950" type="submit" value="Add your craft" />
+                <input className="btn btn-block bg-[#3E54A3] text-[20px] font-semibold mt-[20px] text-white hover:bg-blue-950" type="submit" value="Update your craft" />
 
 
 
