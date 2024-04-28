@@ -9,7 +9,7 @@ const ProtectedRoute = ({children}) => {
     const location =useLocation();
 
     if(loading){
-        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-600 flex justify-center items-center min-h-screen"></div>
+        return <div className='border min-h-screen flex justify-center items-center'><span className="loading loading-bars loading-lg text-blue-900"></span></div>;
     }
     if(user){
         return children;

@@ -66,7 +66,7 @@ const Home = () => {
                         <div className="p-6 xl:col-span-3">
                             <div className="grid gap-4 md:grid-cols-2">
                                 <div className="grid content-center gap-4">
-                                    <div className="p-6 rounded shadow-md dark:bg-gray-50">
+                                    <div className="p-6 rounded shadow-xl dark:bg-gray-50">
                                         <p>I recently purchased a painting from Kraftelle, and I must say, it's truly a masterpiece! The attention to detail and the vibrant colors used in the artwork are mesmerizing. Every brushstroke tells a story, making it a captivating addition to my home decor.</p>
                                         <div className="flex items-center mt-4 space-x-4">
                                             <img src="https://source.unsplash.com/50x50/?portrait?1" alt="" className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500" />
@@ -76,7 +76,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="p-6 rounded shadow-md dark:bg-gray-50">
+                                    <div className="p-6 rounded shadow-xl dark:bg-gray-50">
                                         <p>I stumbled upon Kraftelle's paintings online and was immediately drawn to their unique style. After browsing through their collection, I decided to purchase one for my office, and I'm so glad I did! Not only does the painting serve as a conversation starter, but it also brings a sense of joy and inspiration to my workspace. Thank you, Kraftelle, for creating such beautiful and thought-provoking artwork!</p>
                                         <div className="flex items-center mt-4 space-x-4">
                                             <img src="https://source.unsplash.com/50x50/?portrait?2" alt="" className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500" />
@@ -88,7 +88,7 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className="grid content-center gap-4">
-                                    <div className="p-6 rounded shadow-md dark:bg-gray-50">
+                                    <div className="p-6 rounded shadow-xl dark:bg-gray-50">
                                         <p>I recently redecorated my living room and was searching for the perfect piece of art to tie the whole look together. That's when I discovered Kraftelle's paintings, and I instantly fell in love! The painting I purchased not only complements my decor perfectly but also adds a pop of color and personality to the room. The level of detail in the artwork is incredible, and it never fails to catch the eye of anyone who enters my home. I appreciate the passion and creativity that goes into each painting, and I'll definitely be returning to Kraftelle for future art purchases.</p>
                                         <div className="flex items-center mt-4 space-x-4">
                                             <img src="https://source.unsplash.com/50x50/?portrait?3" alt="" className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500" />
@@ -98,7 +98,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="p-6 rounded shadow-md dark:bg-gray-50">
+                                    <div className="p-6 rounded shadow-xl dark:bg-gray-50">
                                         <p>As an avid art collector, I'm always on the lookout for unique pieces that speak to me on a personal level. When I came across Kraftelle's paintings, I was immediately struck by the depth and emotion conveyed in each piece. I recently acquired one of their paintings for my collection, and it has quickly become one of my favorite pieces. The use of color and texture creates a sense of movement and energy that draws you into the artwork. Kraftelle's paintings have a timeless quality that ensures they will be cherished for years to come. I'm already planning my next purchase!</p>
                                         <div className="flex items-center mt-4 space-x-4">
                                             <img src="https://source.unsplash.com/50x50/?portrait?4" alt="" className="w-12 h-12 bg-center bg-cover rounded-full dark:bg-gray-500" />
@@ -116,6 +116,8 @@ const Home = () => {
             </section>
 
 
+
+     
 
         </div>
     );

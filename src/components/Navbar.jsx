@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
 
@@ -18,16 +19,16 @@ const Navbar = () => {
         document.querySelector('html').setAttribute('data-theme', theme);
     }, [theme])
 
-    const { user,signOutUser } = useContext(AuthContext);
-    
-    const handleLogOut=()=>{
-          signOutUser()
-          .then(result=>{
-            console.log(result.user)
-          })
-          .catch(error=>{
-            console.log(error.message)
-          })
+    const { user, signOutUser } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        signOutUser()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
     }
 
     console.log(user)
@@ -53,10 +54,10 @@ const Navbar = () => {
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/addcrafts'>Add Crafts</NavLink>
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/allcrafts'>All Crafts</NavLink>
                         <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to={`/mycrafts/${user?.email}`}>My Crafts</NavLink>
-                       {
-                        user? '' : <div className="flex flex-col"> <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/login'>Login</NavLink>
-                        <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/signup'>Sign Up</NavLink></div>
-                       }
+                        {
+                            user ? '' : <div className="flex flex-col"> <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/login'>Login</NavLink>
+                                <NavLink className='text-2xl mb-3 p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]' to='/signup'>Sign Up</NavLink></div>
+                        }
                         {
                             user ? <NavLink className="text-2xl p-2 border-b font-medium shadow-md border-r rounded-xl border-[#3E54A3]"><button onClick={handleLogOut}>Logout</button></NavLink> : ''
                         }
@@ -76,14 +77,13 @@ const Navbar = () => {
                         <div className="flex gap-5 items-center">
                             <input onChange={handleToggle} type="checkbox" value="synthwave" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2" />
 
-                            <div className="avatar tooltip tooltip-bottom" data-tip={user? user.displayName : 'No user'} >
-                                <div className="w-14 rounded-full">
-                                    <img src={user.photoURL} />
+                            <a id="clickable">
+                                <div className="avatar" >
+                                    <div className="w-14 rounded-full">
+                                        <img src={user.photoURL} />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="hidden md:flex">
-                                <NavLink className="md:mr-[20px] p-3 text-white bg-[#3E54A3] font-medium rounded-lg"><button onClick={handleLogOut}>Logout</button></NavLink>
-                            </div>
+                            </a>
                         </div>
                         :
                         <div className="flex items-center"><input onChange={handleToggle} type="checkbox" value="synthwave" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2 mr-[20px]" />
@@ -91,6 +91,10 @@ const Navbar = () => {
                             <NavLink className='md:mr-[20px] p-3 text-white bg-[#3E54A3] font-medium rounded-lg hidden md:flex' to='/signup'><button>Register</button></NavLink></div>
                 }
             </div>
+            <Tooltip anchorSelect="#clickable" clickable>
+                <h1 className="mr-3 font-medium">{user?.displayName}</h1>
+                <button className="bg-blue-900 text-white p-2 rounded-full font-semibold" onClick={handleLogOut}>Logout</button>
+            </Tooltip>
         </div>
     );
 };
