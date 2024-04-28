@@ -64,8 +64,9 @@ const router = createBrowserRouter([
           loader:({params})=>fetch(`http://localhost:5000/items/${params.id}`)
       },
       {
-          path:'/subcatdetails/:id',
-          element:<CategorySubDetails></CategorySubDetails>
+          path:'/subcatdetails/:cat',
+          element:<CategorySubDetails></CategorySubDetails>,
+
       }
     ]
   },

@@ -126,10 +126,10 @@ const Home = () => {
             {/* Sub category section */}
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-center mx-[7px] mb-[50px] ">
                 {
-                   subCat.map((acat)=><Link to={`/subcatdetails/${acat.subcategory}`}  key={acat._id}><div className=" p-6 h-full rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
-                   <img src={acat.image} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
+                   subCat?.map((acat)=><Link to={`/subcatdetails/${acat?.subcategory}`}  key={acat?._id}><div className=" p-6 h-full rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+                   <img src={acat?.image} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
                    
-                   <p className="dark:text-gray-800 mt-[20px] text-[25px] font-semibold">{acat.subcategory}</p>
+                   <p className="dark:text-gray-800 mt-[20px] text-[25px] font-semibold">{acat?.subcategory}</p>
                </div></Link>)
                 }
             </div>
