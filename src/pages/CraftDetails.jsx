@@ -28,9 +28,9 @@ const CraftDetails = () => {
             <div className="dark:bg-violet-600">
                 <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-50 bg-slate-200">
                     <h1 data-aos="zoom-in-up" className="text-3xl md:text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50">{itemname}</h1>
-                    <h1 className="text-2xl md:text-3xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50 mt-[30px]">{subcategory}</h1>
+                    <h1 data-aos="zoom-in-up" className="text-2xl md:text-3xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50 mt-[30px]">{subcategory}</h1>
                     <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-50 text-justify">{description}</p>
-                    <div className="flex flex-wrap justify-center">
+                    <div data-aos="zoom-in-up" className="flex flex-wrap justify-center">
                         <button type="button" className="px-8 py-3 m-2 text-[30px] font-semibold rounded dark:bg-gray-100 dark:text-gray-900">Price: ${price}</button>
                         <button type="button" className="px-8 py-3 m-2 text-lg border rounded dark:border-gray-300 dark:text-gray-50 flex items-center gap-2 border-[#3E54A3]">Ratings: {rating} <FaStar className="text-yellow-500 text-[20px]"></FaStar></button>
                     </div>
