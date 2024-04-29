@@ -4,6 +4,9 @@ import { MdDashboardCustomize } from "react-icons/md";
 import { AiOutlineStock } from "react-icons/ai";
 import { IoPricetags } from "react-icons/io5";
 import Swal from "sweetalert2";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 
 const MyArtDetails = ({ art, setArt,myArt }) => {
     const { _id,imageurl, itemname, price, rating, stockstatus, customization } = art;
@@ -44,10 +47,14 @@ const MyArtDetails = ({ art, setArt,myArt }) => {
         });
 
     }
+
+    useEffect(()=>{
+        AOS.init({duration:1000})
+    },[])
     
 
     return (
-        <section className="dark:bg-gray-100 dark:text-gray-800">
+        <section className="dark:bg-gray-100 dark:text-gray-800" data-aos="zoom-in-right">
             <div className="container w-full p-6 mx-auto space-y-6 sm:space-y-12">
 
                 <div className="">

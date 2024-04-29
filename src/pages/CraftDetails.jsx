@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import { MdOutlineMoreTime } from "react-icons/md";
 import { AiOutlineStock } from "react-icons/ai";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const CraftDetails = () => {
+
+    useEffect(()=>{
+        AOS.init({duration:1000})
+    },[])
 
     const loadedItem = useLoaderData();
     const [item, setItem] = useState(loadedItem);
@@ -21,7 +27,7 @@ const CraftDetails = () => {
             </Helmet>
             <div className="dark:bg-violet-600">
                 <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-50 bg-slate-200">
-                    <h1 className="text-3xl md:text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50">{itemname}</h1>
+                    <h1 data-aos="zoom-in-up" className="text-3xl md:text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50">{itemname}</h1>
                     <h1 className="text-2xl md:text-3xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-50 mt-[30px]">{subcategory}</h1>
                     <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-50 text-justify">{description}</p>
                     <div className="flex flex-wrap justify-center">

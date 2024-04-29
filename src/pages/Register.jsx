@@ -1,7 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from 'sweetalert2'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext);
@@ -83,6 +85,12 @@ const Register = () => {
 
     }
 
+    useEffect(()=>{
+        AOS.init({duration:1000})
+    },[])
+
+
+
 
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -90,7 +98,7 @@ const Register = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>
                 </div>
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100" data-aos="fade-down">
                     <form onSubmit={handleSignUp} className="card-body px-2 md:px-7">
 
                         <div className="form-control">
