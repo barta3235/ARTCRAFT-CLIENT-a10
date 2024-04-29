@@ -6,6 +6,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -102,6 +103,9 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200 ">
+            <Helmet>
+                <title>Kraftelle | Login</title>
+            </Helmet>
         <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
                 <h1 className="text-5xl font-bold">Login now!</h1>
