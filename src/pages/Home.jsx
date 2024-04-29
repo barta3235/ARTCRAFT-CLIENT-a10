@@ -5,10 +5,12 @@ import EachCraft from "./EachCraft";
 import { Typewriter } from 'react-simple-typewriter'
 import { Helmet } from "react-helmet-async";
 
+const img = 'https://i.postimg.cc/859mCkcf/uuu.jpg'
+
 const Home = () => {
     const loadedItems = useLoaderData();
     const [crafts, setCrafts] = useState(loadedItems);
-    const [subCat,setSubCat]=useState([])
+    const [subCat, setSubCat] = useState([])
     const slicedCrafts = crafts.slice(0, 6);
     console.log(slicedCrafts);
 
@@ -17,11 +19,11 @@ const Home = () => {
         console.log(count)
     }
 
-    useEffect(()=>{
-        fetch('https://m10m57-art-craft-server.vercel.app/subcatitem')
-        .then(res=>res.json())
-        .then(data=>setSubCat(data));
-    },[])
+    useEffect(() => {
+        fetch('http://localhost:5000/subcatitem')
+            .then(res => res.json())
+            .then(data => setSubCat(data));
+    }, [])
 
 
     const handleDone = () => {
@@ -30,13 +32,13 @@ const Home = () => {
 
     return (
         <div>
-             <Helmet>
-                 <title>Kraftelle | Home</title>
+            <Helmet>
+                <title>Kraftelle | Home</title>
             </Helmet>
             <Banner></Banner>
 
             {/* REACT typewriter */}
-            <div className='App mb-[20px]'>
+            <div className='App mb-[20px] mx-[10px]'>
                 <h1 className="text-3xl md:text-5xl text-center" style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
                     <span className="font-medium">Kraftelle communicates</span>{' '}
                     <span style={{ color: '#3E54A3', fontWeight: 'bold' }}>
@@ -67,7 +69,7 @@ const Home = () => {
 
 
             {/* extra section 1 |  Reviews */}
-            <section className="dark:bg-gray-100 dark:text-gray-800">
+            <section className="dark:bg-gray-100 dark:text-gray-800 ">
                 <div className="container md:px-6 py-12 mx-auto">
                     <div className="grid items-center gap-4 xl:grid-cols-5">
                         <div className="max-w-2xl mx-auto my-8 space-y-4 text-center xl:col-span-2 xl:text-left">
@@ -126,19 +128,51 @@ const Home = () => {
                 </div>
             </section>
 
-           
+
             {/* Sub category section */}
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-center mx-[7px] mb-[50px] ">
                 {
-                   subCat?.map((acat)=><Link to={`/subcatdetails/${acat?.subcategory}`}  key={acat?._id}><div className=" p-6 h-full rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
-                   <img src={acat?.image} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
-                   
-                   <p className="dark:text-gray-800 mt-[20px] text-[25px] font-semibold">{acat?.subcategory}</p>
-               </div></Link>)
+                    subCat?.map((acat) => <Link to={`/subcatdetails/${acat?.subcategory}`} key={acat?._id}><div className=" p-6 h-full rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+                        <img src={acat?.image} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
+
+                        <p className="dark:text-gray-800 mt-[20px] text-[25px] font-semibold">{acat?.subcategory}</p>
+                    </div></Link>)
                 }
             </div>
 
-     
+
+
+
+            {/* Extra section2  */}
+
+            <div className="grid max-w-screen-xl grid-cols-1 gap-12 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-100 dark:text-gray-800">
+                <div className="">
+                    <div className="space-y-2 mb-[10px]">
+                        <h2 className="text-4xl font-bold leading-tight lg:text-[40px]">Let's Paint Memories</h2>
+                        <div className="dark:text-gray-600 font-medium ">Share your thoughts on how did you find our colors</div>
+                    </div>
+                    <div className="flex justify-center">
+                        <img src={img} alt="" className="h-3/4 rounded-full" />
+                    </div>
+                </div>
+                <form noValidate="" className="space-y-6">
+                    <div>
+                        <label htmlFor="name" className="text-blue-950 font-medium">Full name</label>
+                        <input id="name" type="text" placeholder="" className="w-full p-3 rounded dark:bg-gray-100 border border-blue-950" />
+                    </div>
+                    <div>
+                        <label htmlFor="email" className="text-blue-950 font-medium">Email</label>
+                        <input id="email" type="email" className="w-full p-3 rounded dark:bg-gray-100 border border-blue-950" />
+                    </div>
+                    <div>
+                        <label htmlFor="message" className="text-blue-950 font-medium">Message</label>
+                        <textarea placeholder="Share your thoughts" id="message" rows="8" className="w-full p-3 rounded dark:bg-gray-100 border border-blue-950"></textarea>
+                    </div>
+                    <button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded-lg dark:bg-violet-600 text-white dark:text-gray-50 bg-blue-900 hover:bg-blue-950">Send Message</button>
+                </form>
+            </div>
+
+
 
         </div>
     );
