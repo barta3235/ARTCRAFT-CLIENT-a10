@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 const MyCrafts = () => {
 
     const loadedItems = useLoaderData();
+    console.log('in my craft',loadedItems);
     const [myArt, setMyArt] = useState(loadedItems);
     const [sortMyArt,setSortMyArt]=useState(myArt);
 

@@ -21,12 +21,11 @@ const MyArtDetails = ({ art, setArt,myArt }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 
-                fetch(`http://localhost:5000/items/${id}`,{
+                fetch(`https://m10m57-art-craft-server.vercel.app/items/${id}`,{
                     method:'DELETE',
                     headers:{
                         'content-type':'application/json',
                     },
-                    body: JSON.stringify()
                 })
                 .then(res=> res.json())
                 .then((data)=>{
@@ -34,7 +33,7 @@ const MyArtDetails = ({ art, setArt,myArt }) => {
                     if(data.deletedCount>0){
                         Swal.fire({
                             title: "Deleted!",
-                            text: "Your coffee will be discontinued.",
+                            text: "Your craft will be discontinued.",
                             icon: "success"
                         });
                     }
