@@ -24,7 +24,7 @@ const MyArtDetails = ({ art, setArt,myArt }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 
-                fetch(`http://localhost:5000/items/${id}`,{
+                fetch(`https://m10m57-art-craft-server.vercel.app/items/${id}`,{
                     method:'DELETE',
                     headers:{
                         'content-type':'application/json',

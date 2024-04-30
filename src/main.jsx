@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/items')
+        loader: () => fetch('https://m10m57-art-craft-server.vercel.app/items')
       },
       {
         path: '/signup',
@@ -47,27 +47,27 @@ const router = createBrowserRouter([
       {
         path: '/allcrafts',
         element: <Allcrafts></Allcrafts>,
-        loader: () => fetch('http://localhost:5000/items')
+        loader: () => fetch('https://m10m57-art-craft-server.vercel.app/items')
       },
       {
         path: '/craftDetails/:id',
         element: <ProtectedRoute><CraftDetails></CraftDetails></ProtectedRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/items/${params.id}`)
+        loader: ({ params }) => fetch(`https://m10m57-art-craft-server.vercel.app/items/${params.id}`)
       },
       {
         path: '/mycrafts/:email',
         element: <ProtectedRoute><MyCrafts></MyCrafts></ProtectedRoute>,
-      //   loader: ({ params }) => fetch(`http://localhost:5000/itemsbyemail/${params.email}`)
+      //   loader: ({ params }) => fetch(`https://m10m57-art-craft-server.vercel.app/itemsbyemail/${params.email}`)
       },
       {
         path: '/update/:id',
         element: <ProtectedRoute><Update></Update></ProtectedRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/items/${params.id}`)
+        loader: ({ params }) => fetch(`https://m10m57-art-craft-server.vercel.app/items/${params.id}`)
       },
       {
         path: '/subcatdetails/:cat',
         element: <CategorySubDetails></CategorySubDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/subcatitem/${params.cat}`)
+        loader: ({ params }) => fetch(`https://m10m57-art-craft-server.vercel.app/subcatitem/${params.cat}`)
 
       },
     ]

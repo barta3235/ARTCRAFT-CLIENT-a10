@@ -9,16 +9,16 @@ const MyCrafts = () => {
     const [myArt, setMyArt] = useState([]);
     const [sortMyArt,setSortMyArt]=useState([]);
 
-    // const loadedItems = useLoaderData();
+    // using user.email as if loader used email remains undefined, with changes in use reach time the component here re renders
     useEffect(()=>{
-        fetch(`http://localhost:5000/itemsbyemail/${user.email}`)
+        fetch(`https://m10m57-art-craft-server.vercel.app/itemsbyemail/${user.email}`)
         .then(res=>res.json())
         .then(data=> {
             console.log('In fetch',data);
             setMyArt(data);
             setSortMyArt(data);
         })
-    },[])
+    },[user.email])
     
 
 
