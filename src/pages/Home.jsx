@@ -23,7 +23,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        fetch('https://m10m57-art-craft-server.vercel.app/subcatitem')
+        fetch('http://localhost:5000/subcatitem')
             .then(res => res.json())
             .then(data => setSubCat(data));
     }, [])

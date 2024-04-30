@@ -1,14 +1,26 @@
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import MyArtDetails from "./MyArtDetails";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../provider/AuthProvider";
 
 const MyCrafts = () => {
 
-    const loadedItems = useLoaderData();
-    console.log('in my craft',loadedItems);
-    const [myArt, setMyArt] = useState(loadedItems);
-    const [sortMyArt,setSortMyArt]=useState(myArt);
+    const {user}=useContext(AuthContext);
+    const [myArt, setMyArt] = useState([]);
+    const [sortMyArt,setSortMyArt]=useState([]);
+
+    // const loadedItems = useLoaderData();
+    useEffect(()=>{
+        fetch(`http://localhost:5000/itemsbyemail/${user.email}`)
+        .then(res=>res.json())
+        .then(data=> {
+            console.log('In fetch',data);
+            setMyArt(data);
+            setSortMyArt(data);
+        })
+    },[])
+    
+
 
     const handleSort=(value)=>{
         if(value==='Yes'){

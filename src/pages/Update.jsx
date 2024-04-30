@@ -25,7 +25,7 @@ const Update = () => {
         const updatedItem = { imageurl, itemname, subcategory, description, price, rating, processingtime, stockstatus, name, email, customization };
         console.log(updatedItem);
 
-        fetch(`https://m10m57-art-craft-server.vercel.app/items/${_id}`,{
+        fetch(`http://localhost:5000/items/${_id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'
