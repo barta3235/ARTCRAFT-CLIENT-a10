@@ -1,6 +1,7 @@
-- Selected Category: Painting and Drawing
+Painting and Drawing
 
 - Live URL: https://m10m57-artcraft.web.app
+- Server Side: https://github.com/barta3235/ARTCRAFT-SERVER-a10
   
 - FEATURES
 - User Authentication: Users can log in using email/password, Google, or GitHub accounts.
